@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
+import 'package:travel_app/widgets/responsive_button.dart';
 
 class PageBienvenue extends StatefulWidget {
   @override
@@ -29,7 +30,16 @@ class _PageBienvenueState extends State<PageBienvenue> {
                   child: Row(
                     children: [
                       Column(
-                        children: [AppLargeText(text: 'Voyages')],
+                        children: [
+                          AppLargeText(text: 'Voyages'),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          ResponsiveButton(),
+                        ],
                       )
                     ],
                   ),
