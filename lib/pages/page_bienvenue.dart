@@ -1,10 +1,13 @@
 // ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
+import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
+import 'package:travel_app/widgets/app_text.dart';
 import 'package:travel_app/widgets/responsive_button.dart';
 
 class PageBienvenue extends StatefulWidget {
+  const PageBienvenue({Key? key}) : super(key: key);
   @override
   _PageBienvenueState createState() => _PageBienvenueState();
 }
@@ -26,20 +29,54 @@ class _PageBienvenueState extends State<PageBienvenue> {
                         image: AssetImage('assets/img/' + images[index]),
                         fit: BoxFit.cover)),
                 child: Container(
-                  margin: const EdgeInsets.only(top: 150, left: 20, right: 20),
+                  margin: const EdgeInsets.only(top: 140, left: 20, right: 20),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          AppLargeText(text: 'Voyages'),
+                          AppLargeText(text: "Voyages"),
+                          AppText(
+                            text: "Montagne",
+                            size: 50,
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            width: 250,
+                            child: AppText(
+                              text:
+                                  "Les micros de montagne vous procurent une incroyable sensation de liberté ainsi que des tests d'endurance",
+                              color: AppColors.textColor2,
+                              size: 14,
+                            ),
+                          ),
                           const SizedBox(
                             height: 20,
                           ),
                           const SizedBox(
                             height: 40,
                           ),
-                          ResponsiveButton(),
+                          ResponsiveButton(
+                            width: 120,
+                          ),
                         ],
+                      ),
+                      Column(
+                        children: List.generate(3, (indexDots) {
+                          return Container(
+                            margin: const EdgeInsets.only(bottom: 2),
+                            width: 8,
+                            height: index == indexDots ? 25 : 8,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: index == indexDots
+                                    ? AppColors.mainColor
+                                    : AppColors.mainColor.withOpacity(0.3)),
+                          );
+                        }),
                       )
                     ],
                   ),

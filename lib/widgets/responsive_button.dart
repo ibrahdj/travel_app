@@ -14,13 +14,14 @@ class ResponsiveButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: 60,
+      height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: AppColors.mainColor,
       ),
       child: Row(
-        children: [Image.asset('assets/images/button-one.png')],
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [Image.asset("assets/img/button-one.png")],
       ),
     );
   }
