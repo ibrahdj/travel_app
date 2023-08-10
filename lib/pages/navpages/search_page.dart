@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {
@@ -7,7 +8,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Center(
+        child: const Center(
       child: Text("Search page"),
     ));
   }
