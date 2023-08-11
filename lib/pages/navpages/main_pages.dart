@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:travel_app/pages/navpages/home_page.dart';
+import 'package:travel_app/pages/home_page.dart';
 import 'my_page.dart';
 import 'search_page.dart';
 import 'bar_item.dart';

@@ -39,6 +39,7 @@ class _PageBienvenueState extends State<PageBienvenue> {
                           AppLargeText(text: "Voyages"),
                           AppText(
                             text: "Montagne",
+                            color: Colors.black54,
                             size: 50,
                           ),
                           const SizedBox(
