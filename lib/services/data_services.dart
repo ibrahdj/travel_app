@@ -1,27 +1,25 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
+import '../model/data_model.dart';
 
 class DataServices {
   String baseUrl = "http://mark.bslmeiyu.com/api";
-  Future<List> getInfos() sync {
-    var apiUrl = 'get/places';
-    http.Response res = await http.get(Uri.parse(baseUrl+apiUrl)); 
-    try{
-      if(res.statusCode==200);
-      {
-        List<dynamic> list= json.decode(res.body);
+  Future<List> getInfos() async {
+    var apiUrl = '/getplaces';
+    http.Response res = await http.get(Uri.parse(baseUrl + apiUrl));
+    try {
+      if (res.statusCode == 200) {
+        List<dynamic> list = json.decode(res.body);
+        print(list);
         return list.map((e) => DataModel.fromJson(e)).toList();
-      }else{
+      } else {
         return <DataModel>[];
       }
-
-    }catch(e){
+    } catch (e) {
       print(e);
-      return <DataModel>[];         
-
+      return <DataModel>[];
     }
-    
   }
 }

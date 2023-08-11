@@ -1,6 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travel_app/cubit/app_cubits.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
@@ -36,11 +38,21 @@ class _PageBienvenueState extends State<PageBienvenue> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          AppLargeText(text: "Voyages"),
-                          AppText(
-                            text: "Montagne",
-                            color: Colors.black54,
+                          AppLargeText(
+                            text: "GL5 Group 4",
+                            size: 40,
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          AppLargeText(
+                            text: "Tris",
                             size: 50,
+                          ),
+                          AppText(
+                            text: "Mountain",
+                            color: Colors.black54,
+                            size: 30,
                           ),
                           const SizedBox(
                             height: 20,
@@ -51,7 +63,7 @@ class _PageBienvenueState extends State<PageBienvenue> {
                               text:
                                   "Les micros de montagne vous procurent une incroyable sensation de liberté ainsi que des tests d'endurance",
                               color: AppColors.textColor2,
-                              size: 14,
+                              size: 18,
                             ),
                           ),
                           const SizedBox(
@@ -60,8 +72,18 @@ class _PageBienvenueState extends State<PageBienvenue> {
                           const SizedBox(
                             height: 40,
                           ),
-                          ResponsiveButton(
-                            width: 120,
+                          GestureDetector(
+                            onTap: () {
+                              BlocProvider.of<AppCubits>(context).getData();
+                            },
+                            child: Container(
+                              width: 200,
+                              child: Row(children: [
+                                ResponsiveButton(
+                                  width: 120,
+                                ),
+                              ]),
+                            ),
                           ),
                         ],
                       ),

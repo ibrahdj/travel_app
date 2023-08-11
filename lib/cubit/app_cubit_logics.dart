@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travel_app/cubit/app_cubit_states.dart';
 import 'package:travel_app/cubit/app_cubits.dart';
-import 'package:travel_app/pages/navpages/home_page.dart';
+import 'package:travel_app/pages/detail_page.dart';
 import 'package:travel_app/pages/page_bienvenue.dart';
 
+import '../pages/home_page.dart';
+
 class AppCubitLogics extends StatefulWidget {
-  const AppCubitLogics({Key?key}):super(key:key );
+  const AppCubitLogics({Key? key}) : super(key: key);
 
   @override
   State<AppCubitLogics> createState() => _AppCubitLogicsState();
@@ -15,24 +18,27 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<AppCubits, CubitStates>(
-        builder:(context, states){
-          if (state is BienvenueState){
-            return PageBienvenue();
-          }
-        
-          if { (state is LoadedState){
-            return Center(child: CircularProgressIndicator(),);
-          }
-          if { (state is LoadedState){
-            return HomePage();
-          }
-          else{
-            return Container();
-          }
-
+      body: BlocBuilder<AppCubits, CubitStates>(builder: (context, states) {
+        // if (states is DetailState) {
+        //   return DetailPage();
+        // }
+        if (states is WelcomeState) {
+          return PageBienvenue();
         }
-      ),
+        if (states is LoadedState) {
+          return HomePage();
+        }
+        if (states is LoadingState) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (states is WelcomeState) {
+          return HomePage();
+        } else {
+          return Container();
+        }
+      }),
     );
   }
 }
