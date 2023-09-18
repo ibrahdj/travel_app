@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travel_app/cubit/app_cubit_states.dart';
 import 'package:travel_app/cubit/app_cubits.dart';
 import 'package:travel_app/pages/detail_page.dart';
+import 'package:travel_app/pages/navpages/main_pages.dart';
 import 'package:travel_app/pages/page_bienvenue.dart';
 
 import '../pages/home_page.dart';
@@ -19,22 +20,19 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocBuilder<AppCubits, CubitStates>(builder: (context, states) {
-        // if (states is DetailState) {
-        //   return DetailPage();
-        // }
+        if (states is DetailState) {
+          return DetailPage();
+        }
         if (states is WelcomeState) {
           return PageBienvenue();
         }
         if (states is LoadedState) {
-          return HomePage();
+          return MainPage();
         }
         if (states is LoadingState) {
           return Center(
             child: CircularProgressIndicator(),
           );
-        }
-        if (states is WelcomeState) {
-          return HomePage();
         } else {
           return Container();
         }

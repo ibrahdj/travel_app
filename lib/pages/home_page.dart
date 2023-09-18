@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   var images = {
     "kayaking.png": "Kayaking",
     "snorkling.png": "Snorkling",
-    "balloning-one.png": "Balloning",
+    "balloning.png": "Balloning",
     "hiking-one.png": "Hiking",
   };
   @override
@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   const Icon(Icons.menu, size: 30, color: Colors.black54),
                   Expanded(child: Container()),
                   Container(
+                    child: Icon(Icons.person_rounded),
                     margin: const EdgeInsets.only(right: 20),
                     width: 30,
                     height: 30,
@@ -101,19 +102,64 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           width: 200,
                           height: 300,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.white,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    "http://mark.bslmeiyu.com/uploads/" +
-                                        info[index].img),
-                                fit: BoxFit.cover,
-                              )),
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  "http://mark.bslmeiyu.com/uploads/" +
+                                      info[index].img),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                       );
                     },
                   ),
-                  Text('There'),
+                  Container(
+                    width: double.maxFinite,
+                    child: ListView.builder(
+                        itemCount: info.length,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (_, index) {
+                          return Container(
+                            height: 120,
+                            margin: const EdgeInsets.only(
+                              bottom: 10,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  //margin: const EdgeInsets.only(right: 50),
+                                  width: 80,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                          "http://mark.bslmeiyu.com/uploads/" +
+                                              info[index].img),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                  width: 20,
+                                ),
+                                Container(
+                                  child: AppText(
+                                    text: info[index].name,
+                                    color: AppColors.textColor2,
+                                    size: 18,
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        }),
+                  ),
                   Text('Bye'),
                 ],
               ),
@@ -155,8 +201,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         children: [
                           Container(
                             //margin: const EdgeInsets.only(right: 50),
-                            width: 70,
-                            height: 70,
+                            width: 80,
+                            height: 80,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 color: Colors.white,

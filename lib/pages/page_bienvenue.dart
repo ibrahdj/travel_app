@@ -39,22 +39,18 @@ class _PageBienvenueState extends State<PageBienvenue> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AppLargeText(
-                            text: "GL5 Group 4",
-                            size: 40,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          AppLargeText(
                             text: "Tris",
                             size: 50,
+                          ),
+                          SizedBox(
+                            height: 20,
                           ),
                           AppText(
                             text: "Mountain",
                             color: Colors.black54,
                             size: 30,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 20,
                           ),
                           Container(
@@ -66,10 +62,7 @@ class _PageBienvenueState extends State<PageBienvenue> {
                               size: 18,
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const SizedBox(
+                          SizedBox(
                             height: 40,
                           ),
                           GestureDetector(
