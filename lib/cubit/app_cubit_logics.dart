@@ -6,8 +6,6 @@ import 'package:travel_app/pages/detail_page.dart';
 import 'package:travel_app/pages/navpages/main_pages.dart';
 import 'package:travel_app/pages/page_bienvenue.dart';
 
-import '../pages/home_page.dart';
-
 class AppCubitLogics extends StatefulWidget {
   const AppCubitLogics({Key? key}) : super(key: key);
 
